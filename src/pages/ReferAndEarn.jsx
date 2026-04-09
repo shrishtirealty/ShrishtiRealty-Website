@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FiUserPlus, FiPhoneCall, FiGift, FiSend } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
+import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, GridPattern } from '../components/Decorations'
 
 const steps=[
   {icon:FiUserPlus,title:'Nominate a Friend',desc:'Share details of someone who might be interested in our projects.'},
@@ -19,17 +20,20 @@ export default function ReferAndEarn(){
       <PageBanner label="Ambassador Program" title="Refer And Earn" subtitle="Win for You. Win for Them." img="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80"/>
 
       {/* Steps */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+        <DotGrid />
+        <CornerArc position="top-right" size={300} />
+        <FloatingCircle size={400} bottom="-5%" left="-5%" color="gold" opacity={0.025} />
         <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
           <Reveal className="mb-14">
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">How It Works</span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Three Simple Steps</h2>
+            <h2 className="font-display text-3xl lg:text-4xl font-normal text-gray-900 mb-3">Three Simple Steps</h2>
             <p className="text-gray-500 max-w-xl">Our Ambassador Program rewards existing customers for spreading the word about Shrishti Realty.</p>
           </Reveal>
           <Stagger gap={0.12} className="grid md:grid-cols-3 gap-6">
             {steps.map((st,i)=>(
               <StaggerChild key={i}>
-                <div className="group p-8 bg-cream rounded-2xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full relative overflow-hidden">
+                <div className="group p-8 bg-section-cream rounded-2xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full relative overflow-hidden">
                   <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"/>
                   <span className="font-display text-4xl font-bold text-gold/10 block mb-2">0{i+1}</span>
                   <div className="w-16 h-16 rounded-full bg-green-pale grid place-items-center mx-auto mb-5 group-hover:bg-gold/10 transition-colors">
@@ -45,7 +49,10 @@ export default function ReferAndEarn(){
       </section>
 
       {/* Eligibility */}
-      <section className="py-24 lg:py-32 bg-dark-green">
+      <section className="relative py-24 lg:py-32 bg-dark-green overflow-hidden">
+        <GridPattern dark />
+        <CornerArc position="top-left" size={200} color="gold" />
+        <CornerArc position="bottom-right" size={250} color="gold" />
         <div className="max-w-3xl mx-auto px-5 text-center">
           <Reveal>
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold/70 mb-4 block">Eligibility</span>
@@ -63,14 +70,16 @@ export default function ReferAndEarn(){
       </section>
 
       {/* Form */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="relative py-28 lg:py-36 bg-[#f0ece6] overflow-hidden">
+        <DiagonalLines />
+        <CornerArc position="bottom-left" size={280} color="green" />
         <div className="max-w-[900px] mx-auto px-5 lg:px-10">
           <Reveal>
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">Nominate</span>
             <h2 className="font-display text-3xl font-bold text-gray-900 mb-10">Submit Your Referral</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <form onSubmit={submit} className="p-8 lg:p-10 bg-cream rounded-2xl border border-gray-100 space-y-8">
+            <form onSubmit={submit} className="p-8 lg:p-10 bg-section-cream rounded-2xl border border-gray-100 space-y-8">
               <div>
                 <h3 className="text-[0.68rem] font-bold tracking-[0.18em] uppercase text-gray-400 mb-5 pb-3 border-b border-gray-200">Your Details</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

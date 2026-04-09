@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { FiArrowRight, FiCheck, FiArrowUpRight } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
+import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, GridPattern } from '../components/Decorations'
 
 const data = {
   'real-estate-development': { title:'Real Estate Development', subtitle:'From land to landmark — we turn possibilities into properties you will be proud of.', description:'At Shrishti Realty, real estate development is a curated experience, not just construction. We develop boutique residences, signature villas, high-end apartments and commercial spaces across Thane, Mumbai, Dubai and Doha — each one a benchmark in luxury and livability.', expertise:['Land sourcing, research & feasibility analysis','Site planning & master layout design','Government approvals & regulatory compliance','Residential & commercial development','Eco-friendly & green building practices','Value engineering & cost optimization'], differentiators:['Experienced, detail-driven team','Concept to completion support','Future-ready designs','Timely delivery & high craftsmanship'], quote:"We don't just develop properties — we build destinations.", img:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80', sideImg:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80' },
@@ -23,8 +24,11 @@ export default function ServiceDetail() {
       <PageBanner label="Our Services" title={s.title} subtitle={s.subtitle} img={s.img} />
 
       {/* Overview with image */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
+      <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+        <DotGrid />
+        <CornerArc position="top-right" size={320} />
+        <FloatingCircle size={400} bottom="-8%" left="-5%" color="green" opacity={0.025} />
+        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <Reveal direction="left">
               <img src={s.sideImg} alt={s.title} className="w-full h-[420px] object-cover rounded-2xl shadow-lg" />
@@ -43,18 +47,20 @@ export default function ServiceDetail() {
       </section>
 
       {/* Expertise grid */}
-      <section className="py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
+      <section className="relative py-28 lg:py-36 bg-[#f0ece6] overflow-hidden">
+        <DiagonalLines />
+        <CornerArc position="bottom-left" size={280} color="green" />
+        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10">
           <Reveal className="mb-14">
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">
               {slug === 'interior-design' ? 'Design Services' : 'Our Expertise'}
             </span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900">What We Deliver</h2>
+            <h2 className="font-display text-3xl lg:text-4xl font-normal text-gray-900">What We Deliver</h2>
           </Reveal>
           <Stagger gap={0.05} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {s.expertise.map((item, i) => (
               <StaggerChild key={i}>
-                <div className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-gold/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-400 h-full">
+                <div className="group flex items-start gap-4 p-5 bg-white/90 backdrop-blur-sm rounded-xl border border-black/[0.04] hover:border-gold/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-400 h-full">
                   <div className="w-8 h-8 rounded-lg bg-green-pale grid place-items-center shrink-0 mt-0.5 group-hover:bg-gold/10 transition-colors">
                     <FiCheck className="text-green group-hover:text-gold transition-colors" size={14} />
                   </div>
@@ -68,16 +74,17 @@ export default function ServiceDetail() {
 
       {/* Turnkey timeline */}
       {s.turnkey && (
-        <section className="py-24 lg:py-32 bg-white">
+        <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+          <DotGrid />
           <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
             <Reveal className="mb-14">
               <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">Turnkey Execution</span>
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900">{s.turnkeyTagline}</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-normal text-gray-900">{s.turnkeyTagline}</h2>
             </Reveal>
             <Stagger gap={0.06} className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
               {s.turnkey.map((item, i) => (
                 <StaggerChild key={i}>
-                  <div className="group relative p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-gold/30 hover:bg-white hover:shadow-lg transition-all duration-500 h-full overflow-hidden">
+                  <div className="group relative p-6 bg-section-cream rounded-xl border border-gray-100 hover:border-gold/30 hover:bg-white hover:shadow-lg transition-all duration-500 h-full overflow-hidden">
                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gold scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
                     <span className="font-display text-2xl font-bold text-gold/20 block mb-2">0{i + 1}</span>
                     <p className="text-[0.9rem] text-gray-700 leading-relaxed">{item}</p>
@@ -91,16 +98,17 @@ export default function ServiceDetail() {
 
       {/* Differentiators */}
       {s.differentiators?.length > 0 && (
-        <section className={`py-24 lg:py-32 ${s.turnkey ? 'bg-gray-50' : 'bg-white'}`}>
+        <section className={`relative py-24 lg:py-32 overflow-hidden ${s.turnkey ? 'bg-[#f0ece6]' : 'bg-[#f6f4f0]'}`}>
+          <DiagonalLines />
           <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
             <Reveal className="text-center mb-14">
               <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">Why Choose Us</span>
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900">What Sets Us Apart</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-normal text-gray-900">What Sets Us Apart</h2>
             </Reveal>
             <Stagger gap={0.1} className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
               {s.differentiators.map((item, i) => (
                 <StaggerChild key={i}>
-                  <div className="group text-center p-8 bg-white rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
+                  <div className="group text-center p-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-black/[0.04] hover:border-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
                     <div className="w-14 h-14 rounded-full bg-gold/10 grid place-items-center mx-auto mb-5 group-hover:bg-gold group-hover:scale-110 transition-all duration-400">
                       <span className="font-display text-lg font-bold text-gold group-hover:text-white transition-colors">0{i + 1}</span>
                     </div>
@@ -115,11 +123,12 @@ export default function ServiceDetail() {
 
       {/* Audiences */}
       {s.audiences && (
-        <section className="py-24 lg:py-32 bg-white">
+        <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+          <DotGrid />
           <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
             <Reveal className="mb-10">
               <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">Who We Serve</span>
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900">Built For</h2>
+              <h2 className="font-display text-3xl lg:text-4xl font-normal text-gray-900">Built For</h2>
             </Reveal>
             <Stagger gap={0.04} className="flex flex-wrap gap-3">
               {s.audiences.map((a, i) => (
@@ -139,6 +148,9 @@ export default function ServiceDetail() {
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img src={s.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark-green/85" />
+        <GridPattern dark />
+        <CornerArc position="top-left" size={200} color="gold" />
+        <CornerArc position="bottom-right" size={250} color="gold" />
         <div className="relative max-w-3xl mx-auto px-5 text-center">
           <Reveal>
             <span className="font-display text-[5rem] text-gold/20 leading-none block -mb-8 select-none">&ldquo;</span>
@@ -149,10 +161,12 @@ export default function ServiceDetail() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-white text-center">
+      <section className="relative py-28 lg:py-36 bg-[#f0ece6] text-center overflow-hidden">
+        <DiagonalLines />
+        <FloatingCircle size={350} top="20%" right="-5%" color="gold" opacity={0.03} />
         <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-5">Interested in {s.title}?</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-normal text-gray-900 mb-5">Interested in {s.title}?</h2>
             <p className="text-gray-600 mb-10">Let's discuss how we can bring your vision to life.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link to="/contact" className="group flex items-center gap-2 px-9 py-4 bg-gold text-dark-green text-[0.72rem] font-bold tracking-[0.13em] uppercase rounded hover:bg-gold-light hover:shadow-lg transition-all duration-300">

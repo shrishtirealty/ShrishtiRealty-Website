@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import PageBanner from '../components/PageBanner'
+import { DotGrid, CornerArc, FloatingCircle, DiagonalLines } from '../components/Decorations'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 
 const cards = [
@@ -26,7 +27,7 @@ export default function Contact() {
           <Stagger gap={0.06} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {cards.map((c,i)=>(
               <StaggerChild key={i}>
-                <div className="group p-6 bg-white rounded-2xl border border-gray-100 text-center shadow-lg shadow-black/5 hover:border-gold/30 hover:shadow-xl transition-all duration-500">
+                <div className="group p-6 bg-white/90 backdrop-blur-sm rounded-2xl border border-black/[0.04] text-center shadow-lg shadow-black/5 hover:border-gold/30 hover:shadow-xl transition-all duration-500">
                   <div className="w-12 h-12 rounded-full bg-green-pale grid place-items-center mx-auto mb-4 group-hover:bg-gold/10 transition-colors">
                     <c.icon className="text-green group-hover:text-gold transition-colors" size={16}/>
                   </div>
@@ -40,7 +41,11 @@ export default function Contact() {
       </section>
 
       {/* Form */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+        <DotGrid />
+        <CornerArc position="top-right" size={350} />
+        <CornerArc position="bottom-left" size={250} color="green" />
+        <FloatingCircle size={450} top="-10%" right="-8%" color="gold" opacity={0.025} />
         <div className="max-w-[1400px] mx-auto px-5 lg:px-10 grid lg:grid-cols-[1fr_1.4fr] gap-16 lg:gap-24 items-start">
           <Reveal direction="left">
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-4 block">Send A Message</span>
@@ -58,7 +63,7 @@ export default function Contact() {
             </div>
           </Reveal>
           <Reveal direction="right" delay={0.15}>
-            <form onSubmit={submit} className="p-8 lg:p-10 bg-cream rounded-2xl border border-gray-100 space-y-5">
+            <form onSubmit={submit} className="p-8 lg:p-10 bg-section-cream rounded-2xl border border-gray-100 space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FI label="Name" value={f.name} onChange={v=>s('name',v)} required placeholder="Your name"/>
                 <FI label="Email" type="email" value={f.email} onChange={v=>s('email',v)} required placeholder="your@email.com"/>

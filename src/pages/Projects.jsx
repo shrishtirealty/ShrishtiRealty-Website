@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiX, FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi'
+import { DotGrid, CornerArc, FloatingCircle, DiagonalLines } from '../components/Decorations'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 
@@ -41,7 +42,7 @@ export default function Projects() {
             {Object.entries(projectData).map(([key, val]) => (
               <Link key={key} to={`/projects/${key}`}
                 className={`px-5 py-2 text-[0.72rem] font-semibold tracking-[0.08em] uppercase rounded-full whitespace-nowrap transition-all duration-300 ${
-                  key === category ? 'bg-dark-green text-white' : 'text-gray-400 hover:text-dark-green hover:bg-cream'
+                  key === category ? 'bg-dark-green text-white' : 'text-gray-400 hover:text-dark-green hover:bg-section-cream'
                 }`}>
                 {val.title.replace(' Projects', '')}
               </Link>
@@ -51,7 +52,10 @@ export default function Projects() {
       </section>
 
       {/* Project galleries */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">
+        <DotGrid />
+        <CornerArc position="top-right" size={350} />
+        <FloatingCircle size={400} bottom="-5%" left="-5%" color="gold" opacity={0.025} />
         <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
           {project.categories.map((cat, i) => (
             <Reveal key={i} delay={i * 0.06} className="mb-24 last:mb-0">
@@ -80,7 +84,7 @@ export default function Projects() {
                   ))}
                 </Stagger>
               ) : (
-                <div className="bg-cream rounded-2xl p-8 lg:p-12">
+                <div className="bg-section-cream rounded-2xl p-8 lg:p-12">
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     {[1,2,3,4].map(n => (
                       <div key={n} className="aspect-[4/3] rounded-xl border-2 border-dashed border-gray-200 bg-white flex flex-col items-center justify-center gap-3 hover:border-gold/30 transition-colors">
@@ -100,7 +104,8 @@ export default function Projects() {
       </section>
 
       {/* Browse other categories */}
-      <section className="py-20 bg-cream">
+      <section className="relative py-24 bg-[#f0ece6] overflow-hidden">
+        <DiagonalLines />
         <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
           <Reveal className="text-center mb-12">
             <span className="text-[0.65rem] font-semibold tracking-[0.3em] uppercase text-gold mb-3 block">More Projects</span>
@@ -109,7 +114,7 @@ export default function Projects() {
           <div className="flex flex-wrap justify-center gap-4">
             {otherCategories[category]?.map((cat, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <Link to={cat.to} className="group flex items-center gap-3 px-8 py-4 bg-white rounded-xl border border-gray-100 hover:border-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-400">
+                <Link to={cat.to} className="group flex items-center gap-3 px-8 py-4 bg-white/90 backdrop-blur-sm rounded-xl border border-black/[0.04] hover:border-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-400">
                   <span className="text-[0.82rem] font-bold text-gray-700 group-hover:text-dark-green transition-colors">{cat.label} Projects</span>
                   <FiArrowRight className="text-gray-400 group-hover:text-gold group-hover:translate-x-1 transition-all" size={14} />
                 </Link>
