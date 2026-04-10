@@ -6,18 +6,24 @@ export async function sendEmail(formType, data) {
       body: JSON.stringify({ formType, data }),
     })
 
-    // In dev mode, the API won't exist — handle gracefully
     if (res.status === 404) {
       console.warn('Email API not available (dev mode). Form data:', { formType, data })
-      return { success: true } // Pretend success in dev so forms still work
+      return { success: true }
     }
 
-    const json = await res.json()
+    const text = await res.text()
+    let json
+    try {
+      json = JSON.parse(text)
+    } catch {
+      console.error('Non-JSON response from API:', text.substring(0, 200))
+      throw new Error('Server returned an unexpected response')
+    }
+
     if (!res.ok) throw new Error(json.error || 'Failed to send')
     return { success: true }
   } catch (err) {
     console.error('Email send error:', err)
-    // If fetch itself fails (network error in dev), still let the form work
     if (import.meta.env.DEV) {
       console.warn('Dev mode: email skipped. Data:', { formType, data })
       return { success: true }
