@@ -3,14 +3,16 @@ import { FiUpload, FiSend } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle } from '../components/Decorations'
+import { sendEmail } from '../utils/sendEmail'
 
 export default function Connect(){
   const [tab,setTab]=useState('careers')
   const [career,setCr]=useState({name:'',phone:'',email:'',address:'',resume:null,portfolio:null})
   const [vendor,setVn]=useState({name:'',phone:'',email:'',companyName:'',address:'',productDescription:'',productType:'',website:'',brochure:null})
 
-  const subCr=e=>{e.preventDefault();alert('Thank you for your application!');setCr({name:'',phone:'',email:'',address:'',resume:null,portfolio:null})}
-  const subVn=e=>{e.preventDefault();alert('Thank you for your interest!');setVn({name:'',phone:'',email:'',companyName:'',address:'',productDescription:'',productType:'',website:'',brochure:null})}
+  const [sending,setSending]=useState(false)
+  const subCr=async(e)=>{e.preventDefault();setSending(true);const r=await sendEmail('career',career);setSending(false);alert(r.success?'Thank you for your application!':'Something went wrong.');if(r.success)setCr({name:'',phone:'',email:'',address:'',resume:null,portfolio:null})}
+  const subVn=async(e)=>{e.preventDefault();setSending(true);const r=await sendEmail('vendor',vendor);setSending(false);alert(r.success?'Thank you for your interest!':'Something went wrong.');if(r.success)setVn({name:'',phone:'',email:'',companyName:'',address:'',productDescription:'',productType:'',website:'',brochure:null})}
 
   return(
     <>

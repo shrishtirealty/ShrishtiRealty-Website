@@ -4,6 +4,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 import PageBanner from '../components/PageBanner'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines } from '../components/Decorations'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
+import { sendEmail } from '../utils/sendEmail'
 
 const cards = [
   { icon: FiPhone, label:'Call Us', value:'+91-7498388944', href:'tel:+917498388944' },
@@ -14,8 +15,9 @@ const cards = [
 
 export default function Contact() {
   const [f,setF]=useState({name:'',email:'',phone:'',inquiryType:'',subject:'',message:''})
+  const [sending,setSending]=useState(false)
   const s=(k,v)=>setF({...f,[k]:v})
-  const submit=e=>{e.preventDefault();alert('Thank you! We will get back to you soon.');setF({name:'',email:'',phone:'',inquiryType:'',subject:'',message:''})}
+  const submit=async(e)=>{e.preventDefault();setSending(true);const r=await sendEmail('contact',f);setSending(false);alert(r.success?'Thank you! We will get back to you soon.':'Something went wrong. Please try again.');if(r.success)setF({name:'',email:'',phone:'',inquiryType:'',subject:'',message:''})}
 
   return (
     <>

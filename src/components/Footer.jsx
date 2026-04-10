@@ -24,46 +24,54 @@ export default function Footer({ onConsultationClick }) {
         {/* Subtle grid */}
         <div className="absolute inset-0 pattern-grid-light" />
 
-        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10 pt-16 pb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-            <div className="lg:col-span-4">
-              <div className="flex items-center gap-2.5 mb-4">
+        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10 pt-14 pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+            {/* Brand */}
+            <div>
+              <div className="flex items-center gap-2.5 mb-3">
                 <div className="w-9 h-9 rounded-full border border-gold/25 grid place-items-center font-display text-sm font-bold text-gold">S</div>
                 <span className="text-sm font-semibold tracking-wide text-white">SHRISHTI <span className="text-gold">REALTY</span></span>
               </div>
               <p className="text-[0.48rem] tracking-[0.35em] uppercase text-white/20 mb-3">Luxury Redefined</p>
-              <p className="text-[0.82rem] text-white/35 leading-relaxed mb-5 max-w-[280px]">
+              <p className="text-[0.8rem] text-white/35 leading-relaxed mb-4">
                 From Mumbai to Dubai, Doha to London, we redefine luxury through innovation, detail and soul.
               </p>
               <div className="flex gap-2">
                 {[{ Icon: FaWhatsapp, href: 'https://wa.me/7498388944' }, { Icon: FaYoutube, href: 'https://youtube.com/@shrishtirealty' }].map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/8 grid place-items-center text-white/25 hover:border-gold/30 hover:text-gold transition-all duration-400">
-                    <s.Icon size={14} />
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/8 grid place-items-center text-white/25 hover:border-gold/30 hover:text-gold transition-all duration-400">
+                    <s.Icon size={13} />
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="lg:col-span-2"><FH>Services</FH>
-              <ul className="space-y-2">{[['Real Estate Development','/services/real-estate-development'],['Interior Design & Turnkey','/services/interior-design'],['Architecture Planning','/services/architecture-planning'],['Project Management','/services/project-management'],['Global Consultancy','/services/global-consultancy'],['3D Visualization','/services/3d-visualization'],['Smart Portable Cabins','/services/smart-portable-cabins']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
+            {/* Services */}
+            <div><FH>Services</FH>
+              <ul className="space-y-1.5">{[['Real Estate Development','/services/real-estate-development'],['Interior Design & Turnkey','/services/interior-design'],['Architecture Planning','/services/architecture-planning'],['Project Management','/services/project-management'],['Global Consultancy','/services/global-consultancy'],['3D Visualization','/services/3d-visualization'],['Smart Portable Cabins','/services/smart-portable-cabins']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
             </div>
 
-            <div className="lg:col-span-2"><FH>Quick Links</FH>
-              <ul className="space-y-2 mb-6">{[['Home','/'],['About Us','/about'],['Services','/services'],['Refer & Earn','/refer-and-earn'],['Connect','/connect'],['Contact Us','/contact']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
+            {/* Quick Links + Projects together */}
+            <div><FH>Quick Links</FH>
+              <ul className="space-y-1.5 mb-5">{[['Home','/'],['About Us','/about'],['Services','/services'],['Refer & Earn','/refer-and-earn'],['Connect','/connect'],['Contact Us','/contact']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
               <FH>Projects</FH>
-              <ul className="space-y-2">{[['Residential','/projects/residential'],['Commercial','/projects/commercial'],['Hospitality & Retail','/projects/hospitality-retail']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
+              <ul className="space-y-1.5">{[['Residential','/projects/residential'],['Commercial','/projects/commercial'],['Hospitality & Retail','/projects/hospitality-retail']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
             </div>
 
-            <div className="lg:col-span-4"><FH>Contact</FH>
-              <ul className="space-y-3.5 mb-6">
-                <li className="flex items-center gap-3"><FiPhone className="text-gold/35 shrink-0" size={13} /><a href="tel:+917498388944" className="text-[0.82rem] text-white/30 hover:text-gold transition-colors duration-300">+91-7498388944</a></li>
-                <li className="flex items-center gap-3"><FaWhatsapp className="text-gold/35 shrink-0" size={13} /><a href="https://wa.me/7498388944" target="_blank" rel="noopener noreferrer" className="text-[0.82rem] text-white/30 hover:text-gold transition-colors duration-300">Connect on WhatsApp</a></li>
-                <li className="flex items-center gap-3"><FiMail className="text-gold/35 shrink-0" size={13} /><a href="mailto:info@shrishtirealty.com" className="text-[0.82rem] text-white/30 hover:text-gold transition-colors duration-300">info@shrishtirealty.com</a></li>
-                <li className="flex items-center gap-3"><FiMapPin className="text-gold/35 shrink-0" size={13} /><span className="text-[0.82rem] text-white/30">Mumbai, MH India</span></li>
-              </ul>
-              <p className="text-[0.58rem] font-bold tracking-[0.25em] uppercase text-white/15 mb-2.5">Global Presence</p>
-              <div className="flex flex-wrap gap-1.5">
-                {['Mumbai','Dubai','Doha','London'].map(c=><span key={c} className="px-3 py-1 text-[0.6rem] rounded-full border border-white/6 text-white/20">{c}</span>)}
+            {/* Contact - spans 2 cols */}
+            <div className="lg:col-span-2">
+              <FH>Contact</FH>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3"><FiPhone className="text-gold/40 shrink-0" size={13} /><a href="tel:+917498388944" className="text-[0.8rem] text-white/35 hover:text-gold transition-colors duration-300">+91-7498388944</a></li>
+                  <li className="flex items-center gap-3"><FaWhatsapp className="text-gold/40 shrink-0" size={13} /><a href="https://wa.me/7498388944" target="_blank" rel="noopener noreferrer" className="text-[0.8rem] text-white/35 hover:text-gold transition-colors duration-300">Connect on WhatsApp</a></li>
+                </ul>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3"><FiMail className="text-gold/40 shrink-0" size={13} /><a href="mailto:info@shrishtirealty.com" className="text-[0.8rem] text-white/35 hover:text-gold transition-colors duration-300">info@shrishtirealty.com</a></li>
+                  <li className="flex items-center gap-3"><FiMapPin className="text-gold/40 shrink-0" size={13} /><span className="text-[0.8rem] text-white/35">Mumbai, MH India</span></li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-1.5 mt-5">
+                {['Mumbai','Dubai','Doha','London'].map(c=><span key={c} className="px-2.5 py-0.5 text-[0.58rem] rounded-full border border-white/8 text-white/20">{c}</span>)}
               </div>
             </div>
           </div>

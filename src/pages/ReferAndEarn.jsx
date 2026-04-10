@@ -3,6 +3,7 @@ import { FiUserPlus, FiPhoneCall, FiGift, FiSend } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, GridPattern } from '../components/Decorations'
+import { sendEmail } from '../utils/sendEmail'
 
 const steps=[
   {icon:FiUserPlus,title:'Nominate a Friend',desc:'Share details of someone who might be interested in our projects.'},
@@ -12,8 +13,9 @@ const steps=[
 
 export default function ReferAndEarn(){
   const [f,sf]=useState({yn:'',ye:'',yp:'',yc:'',fn:'',fe:'',fp:'',fc:''})
+  const [sending,setSending]=useState(false)
   const s=(k,v)=>sf({...f,[k]:v})
-  const submit=e=>{e.preventDefault();alert('Thank you for your referral!');sf({yn:'',ye:'',yp:'',yc:'',fn:'',fe:'',fp:'',fc:''})}
+  const submit=async(e)=>{e.preventDefault();setSending(true);const r=await sendEmail('referral',{yourName:f.yn,yourEmail:f.ye,yourPhone:f.yp,yourCity:f.yc,friendName:f.fn,friendEmail:f.fe,friendPhone:f.fp,friendCity:f.fc});setSending(false);alert(r.success?'Thank you for your referral!':'Something went wrong.');if(r.success)sf({yn:'',ye:'',yp:'',yc:'',fn:'',fe:'',fp:'',fc:''})}
 
   return(
     <>

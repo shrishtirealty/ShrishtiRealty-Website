@@ -1,10 +1,19 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiX } from 'react-icons/fi'
+import { sendEmail } from '../utils/sendEmail'
 
 export default function ConsultationModal({ isOpen, onClose }) {
   const [f, sf] = useState({ name:'',email:'',phone:'',projectType:'',meetingFormat:'',message:'' })
-  const submit = e => { e.preventDefault(); alert('Thank you! We will get back to you soon.'); onClose(); sf({ name:'',email:'',phone:'',projectType:'',meetingFormat:'',message:'' }) }
+  const [sending, setSending] = useState(false)
+  const submit = async (e) => {
+    e.preventDefault()
+    setSending(true)
+    const res = await sendEmail('consultation', f)
+    setSending(false)
+    alert(res.success ? 'Thank you! We will get back to you soon.' : 'Something went wrong. Please try again.')
+    if (res.success) { onClose(); sf({ name:'',email:'',phone:'',projectType:'',meetingFormat:'',message:'' }) }
+  }
 
   return (
     <AnimatePresence>
@@ -31,7 +40,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
               </div>
               <S label="Meeting Format" value={f.meetingFormat} onChange={v=>sf({...f,meetingFormat:v})} options={['In-Person','Virtual','Site Visit']} required/>
               <div><label className="block text-[0.62rem] font-semibold tracking-[0.1em] uppercase text-gray-400 mb-2">Message (Optional)</label><textarea value={f.message} onChange={e=>sf({...f,message:e.target.value})} placeholder="Tell us about your vision..." rows={3} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-300 focus:border-gold/50 focus:outline-none transition-colors resize-none"/></div>
-              <button type="submit" className="w-full py-3.5 bg-gold text-white text-[0.75rem] font-bold tracking-[0.13em] uppercase rounded-lg hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 transition-all duration-300">Submit Request</button>
+              <button type="submit" disabled={sending} className="w-full py-3.5 bg-gold text-white text-[0.75rem] font-bold tracking-[0.13em] uppercase rounded-lg hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 disabled:opacity-60">{sending ? 'Sending...' : 'Submit Request'}</button>
             </form>
           </motion.div>
         </motion.div>

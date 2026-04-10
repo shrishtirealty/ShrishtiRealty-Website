@@ -19,6 +19,16 @@ const pLinks = [
   { to: '/projects/hospitality-retail', label: 'Hospitality & Retail' },
 ]
 
+/* Dropdown item with gold underline */
+function DDLink({ to, children }) {
+  return (
+    <Link to={to} className="group/dd relative block px-5 py-2 text-[0.78rem] text-gray-500 hover:text-dark-green transition-colors duration-300">
+      <span className="inline-block group-hover/dd:translate-x-1 transition-transform duration-300">{children}</span>
+      <span className="absolute bottom-1 left-5 right-5 h-[1.5px] bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover/dd:scale-x-100 origin-left transition-transform duration-400" />
+    </Link>
+  )
+}
+
 export default function Navbar({ onConsultationClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mob, setMob] = useState(false)
@@ -59,10 +69,10 @@ export default function Navbar({ onConsultationClick }) {
           <DD label="Services" scrolled={scrolled} isHome={isHome} active={loc.pathname.startsWith('/services')} open={dd === 's'} onE={() => setDd('s')} onL={() => setDd(null)}>
             <Link to="/services" className="block px-5 py-2.5 text-[0.78rem] font-semibold text-green hover:bg-green-pale/50 transition-colors rounded-t-lg">All Services &rarr;</Link>
             <div className="h-px bg-gray-100 mx-3 my-1" />
-            {sLinks.map(l => <Link key={l.to} to={l.to} className="group/dd block px-5 py-2 text-[0.78rem] text-gray-500 hover:text-dark-green transition-all duration-300"><span className="inline-block group-hover/dd:translate-x-1 transition-transform duration-300">{l.label}</span></Link>)}
+            {sLinks.map(l => <DDLink key={l.to} to={l.to}>{l.label}</DDLink>)}
           </DD>
           <DD label="Projects" scrolled={scrolled} isHome={isHome} active={loc.pathname.startsWith('/projects')} open={dd === 'p'} onE={() => setDd('p')} onL={() => setDd(null)}>
-            {pLinks.map(l => <Link key={l.to} to={l.to} className="group/dd block px-5 py-2.5 text-[0.78rem] text-gray-500 hover:text-dark-green transition-all duration-300"><span className="inline-block group-hover/dd:translate-x-1 transition-transform duration-300">{l.label}</span></Link>)}
+            {pLinks.map(l => <DDLink key={l.to} to={l.to}>{l.label}</DDLink>)}
           </DD>
           <NL to="/contact" scrolled={scrolled} isHome={isHome} active={loc.pathname === '/contact'}>Contact Us</NL>
         </div>
@@ -117,10 +127,10 @@ export default function Navbar({ onConsultationClick }) {
 /* Nav link with animated slide-in underline */
 function NL({ to, scrolled, isHome, active, children }) {
   const txtColor = scrolled
-    ? (active ? 'text-dark-green' : 'text-gray-500 hover:text-gray-900')
-    : (active ? 'text-gold' : (isHome ? 'text-white/80 hover:text-white' : 'text-white/70 hover:text-white'))
+    ? (active ? 'text-dark-green font-semibold' : 'text-gray-700 hover:text-gray-900')
+    : (active ? 'text-gold' : (isHome ? 'text-white hover:text-white' : 'text-white/90 hover:text-white'))
   return (
-    <Link to={to} className={`nav-hover-line ${active ? 'active' : ''} px-4 py-2 text-[0.72rem] font-medium tracking-[0.08em] uppercase transition-colors duration-300 ${txtColor}`}>
+    <Link to={to} className={`nav-hover-line ${active ? 'active' : ''} px-4 py-2 text-[0.75rem] font-medium tracking-[0.08em] uppercase transition-colors duration-300 ${txtColor}`}>
       {children}
     </Link>
   )
@@ -128,11 +138,11 @@ function NL({ to, scrolled, isHome, active, children }) {
 
 function DD({ label, scrolled, isHome, active, open, onE, onL, children }) {
   const txtColor = scrolled
-    ? (active ? 'text-dark-green' : 'text-gray-500 hover:text-gray-900')
-    : (active ? 'text-gold' : (isHome ? 'text-white/80 hover:text-white' : 'text-white/70 hover:text-white'))
+    ? (active ? 'text-dark-green font-semibold' : 'text-gray-700 hover:text-gray-900')
+    : (active ? 'text-gold' : (isHome ? 'text-white hover:text-white' : 'text-white/90 hover:text-white'))
   return (
     <div className="relative" onMouseEnter={onE} onMouseLeave={onL}>
-      <button className={`flex items-center gap-1 px-4 py-2 text-[0.72rem] font-medium tracking-[0.08em] uppercase transition-colors duration-300 ${txtColor}`}>
+      <button className={`nav-hover-line ${active || open ? 'active' : ''} flex items-center gap-1 px-4 py-2 text-[0.75rem] font-medium tracking-[0.08em] uppercase transition-colors duration-300 ${txtColor}`}>
         {label} <FiChevronDown className={`text-[0.55rem] transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>

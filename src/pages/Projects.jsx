@@ -7,15 +7,39 @@ import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 
 const bannerImgs = {
-  residential: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
-  commercial: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80',
-  'hospitality-retail': 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80',
+  residential: '/images/residential.jpg',
+  commercial: '/images/commercial.jpg',
+  'hospitality-retail': '/images/hopitality.jpg',
 }
 
 const projectData = {
-  residential: { title:'Residential Projects', subtitle:'Boutique residences and signature villas crafted with precision and soul.', categories: [{ name:'Residence 01', images:[] },{ name:'Residence 02', images:[] },{ name:'Residence 03', images:[] },{ name:'Residence 04', images:[] }] },
-  commercial: { title:'Commercial Projects', subtitle:'Modern workspaces and commercial destinations designed for success.', categories: [{ name:'Commercial 01', images:[] },{ name:'Commercial 02', images:[] },{ name:'Commercial 03', images:[] }] },
-  'hospitality-retail': { title:'Hospitality & Retail Projects', subtitle:'Immersive hospitality and retail experiences that captivate.', categories: [{ name:'Hospitality Retail 01', images:[] },{ name:'Hospitality Retail 02', images:[] }] },
+  residential: {
+    title: 'Residential Projects',
+    subtitle: 'Boutique residences and signature villas crafted with precision and soul.',
+    categories: [
+      { name: 'Residence 01', images: ['/images/R1-768x1152.jpg', '/images/R2-768x1152.jpg', '/images/R3-768x1152.jpg', '/images/R4-768x1152.jpg', '/images/R5-768x1152.jpg', '/images/R6-768x1152.jpg', '/images/R7-768x1152.jpg'] },
+      { name: 'Residence 02', images: ['/images/R2-1-768x1152.jpg', '/images/R2-2-1024x683.jpg', '/images/R2-3-768x1152.jpg', '/images/R2-4-768x1152.jpg', '/images/R2-5-1024x683.jpg', '/images/R2-6-1024x683.jpg', '/images/R2-7-1024x683.jpg', '/images/R2-8-1024x683.jpg', '/images/R2-9-1024x683.jpg', '/images/R2-10-1024x683.jpg'] },
+      { name: 'Residence 03', images: ['/images/R3-1-768x1024.jpg', '/images/R3-2-768x1024.jpg', '/images/R3-3-768x1024.jpg', '/images/R3-4-768x1024.jpg', '/images/R3-5-768x1024.jpg', '/images/R3-7-768x1024.jpg', '/images/R3-8-768x1024.jpg', '/images/R3-9-768x1024.jpg'] },
+      { name: 'Residence 04', images: ['/images/R4-1-768x576.jpg', '/images/R4-2-768x576.jpg', '/images/R4-3-768x576.jpg', '/images/R4-4-768x576.jpg', '/images/R4-5-768x576.jpg', '/images/R4-6-768x576.jpg', '/images/R4-7-200x300.jpg', '/images/R4-8-768x576.jpg', '/images/R4-9-768x576.jpg'] },
+    ],
+  },
+  commercial: {
+    title: 'Commercial Projects',
+    subtitle: 'Modern workspaces and commercial destinations designed for success.',
+    categories: [
+      { name: 'Commercial 01', images: ['/images/C1-1024x563.jpg', '/images/C3-1024x676.jpg', '/images/C4-1024x682.jpg', '/images/C5-1024x653.jpg', '/images/C6-1024x648.jpg', '/images/C7-1024x608.jpg', '/images/C8-1024x689.jpg'] },
+      { name: 'Commercial 02', images: ['/images/C2-1-1024x683.jpg', '/images/C2-2-1024x683.jpg', '/images/C2-3-1024x682.jpg', '/images/C2-4-1024x681.jpg', '/images/C2-5-1024x683.jpg', '/images/C2-6-1024x683.jpg', '/images/C2-7-1536x712.jpg', '/images/C2-8-1024x683.jpg', '/images/C2-10-1024x683.jpg', '/images/C2-11-1024x694.jpg', '/images/C2-12-1024x503.jpg'] },
+      { name: 'Commercial 03', images: ['/images/C3-1-1024x768.jpg', '/images/C3-2-1024x768.jpg', '/images/C3-3-1024x768.jpg', '/images/C3-4-1024x768.jpg', '/images/C3-5-1024x768.jpg'] },
+    ],
+  },
+  'hospitality-retail': {
+    title: 'Hospitality & Retail Projects',
+    subtitle: 'Immersive hospitality and retail experiences that captivate.',
+    categories: [
+      { name: 'Hospitality Retail 01', images: ['/images/H1-1024x576.jpg', '/images/H2-1024x576.jpg', '/images/H3-1024x576.jpg', '/images/H4-1024x576.jpg', '/images/H5-1024x576.jpg', '/images/H6-1024x576.jpg', '/images/H7-1024x576.jpg', '/images/H8-1024x576.jpg', '/images/H9-1024x576.jpg', '/images/H10-1024x576.jpg'] },
+      { name: 'Hospitality Retail 02', images: ['/images/H2-1-1024x576.png', '/images/H2-2-1024x576.png', '/images/H2-3-768x432.jpg', '/images/H2-4-1024x576.png', '/images/H2-5-1024x576.png'] },
+    ],
+  },
 }
 
 const otherCategories = {
