@@ -46,20 +46,21 @@ export default function Navbar({ onConsultationClick }) {
   return (
     <motion.nav
       className={`fixed top-0 inset-x-0 z-[100] transition-all duration-700 ${
-        scrolled ? 'py-2 glass' : `py-5 ${isHome ? 'bg-transparent' : 'bg-dark-green'}`
+        scrolled ? 'py-2 glass' : `py-4 lg:py-6 ${isHome ? 'bg-transparent' : 'bg-dark-green'}`
       }`}
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="max-w-[1400px] mx-auto px-5 lg:px-10 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className={`w-10 h-10 rounded-full border-2 grid place-items-center font-display text-lg font-bold transition-all duration-500 group-hover:scale-105 ${scrolled ? 'border-gold/40 text-gold group-hover:border-gold' : 'border-gold/60 text-gold'}`}>S</div>
-          <div className="hidden sm:block leading-[1.15]">
-            <div className={`text-[0.95rem] font-semibold tracking-[0.02em] transition-colors duration-500 ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-              SHRISHTI <span className="text-gold">REALTY</span>
-            </div>
-            <div className={`text-[0.45rem] tracking-[0.35em] uppercase transition-colors duration-500 ${scrolled ? 'text-gray-400' : 'text-white/40'}`}>Luxury Redefined</div>
-          </div>
+        <Link to="/" className="flex items-center shrink-0 group">
+          <img
+            src="/sr_full_logo_.png"
+            alt="Shrishti Realty"
+            style={{ height: scrolled ? '52px' : '68px', width: 'auto', maxWidth: '200px', objectFit: 'contain', flexShrink: 0 }}
+            className={`transition-all duration-500 group-hover:scale-[1.03] ${
+              scrolled ? 'brightness-75' : 'brightness-0 invert'
+            }`}
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -102,6 +103,10 @@ export default function Navbar({ onConsultationClick }) {
             <motion.div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[98]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setMob(false)} />
             <motion.div className="fixed top-0 right-0 w-[85%] max-w-[380px] h-screen bg-white z-[99] shadow-2xl" initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 28, stiffness: 220 }}>
               <div className="pt-20 px-6 pb-8 h-full overflow-y-auto">
+                {/* Mobile menu logo */}
+                <div className="mb-6 -mt-12 pb-4 border-b border-gray-100">
+                  <img src="/sr_full_logo.png" alt="Shrishti Realty" className="h-10 w-auto object-contain brightness-75" />
+                </div>
                 {['/', '/about', '/contact'].map(p => (
                   <Link key={p} to={p} className="block py-3.5 text-[0.9rem] text-gray-600 hover:text-dark-green border-b border-gray-100 transition-colors">{p === '/' ? 'Home' : p === '/about' ? 'About Us' : 'Contact Us'}</Link>
                 ))}

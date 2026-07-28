@@ -28,11 +28,13 @@ export default function Footer({ onConsultationClick }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-full border border-gold/25 grid place-items-center font-display text-sm font-bold text-gold">S</div>
-                <span className="text-sm font-semibold tracking-wide text-white">SHRISHTI <span className="text-gold">REALTY</span></span>
+              <div className="mb-4">
+                <img
+                  src="/sr_full_logo.png"
+                  alt="Shrishti Realty — Luxury Redefined"
+                  className="h-36 w-auto object-contain brightness-125"
+                />
               </div>
-              <p className="text-[0.48rem] tracking-[0.35em] uppercase text-white/20 mb-3">Luxury Redefined</p>
               <p className="text-[0.8rem] text-white/35 leading-relaxed mb-4">
                 From Mumbai to Dubai, Doha to London, we redefine luxury through innovation, detail and soul.
               </p>
