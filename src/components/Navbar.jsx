@@ -46,7 +46,7 @@ export default function Navbar({ onConsultationClick }) {
   return (
     <motion.nav
       className={`fixed top-0 inset-x-0 z-[100] transition-all duration-700 ${
-        scrolled ? 'py-2 glass' : `py-5 ${isHome ? 'bg-transparent' : 'bg-dark-green'}`
+        scrolled ? 'py-2 glass' : `py-4 lg:py-6 ${isHome ? 'bg-transparent' : 'bg-dark-green'}`
       }`}
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -56,7 +56,8 @@ export default function Navbar({ onConsultationClick }) {
           <img
             src="/sr_full_logo.png"
             alt="Shrishti Realty"
-            className={`h-12 lg:h-14 w-auto object-contain transition-all duration-500 group-hover:scale-[1.03] ${
+            style={{ height: scrolled ? '52px' : '68px', width: 'auto', maxWidth: '200px', objectFit: 'contain', flexShrink: 0 }}
+            className={`transition-all duration-500 group-hover:scale-[1.03] ${
               scrolled ? 'brightness-75' : 'brightness-0 invert'
             }`}
           />
