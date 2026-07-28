@@ -30,7 +30,7 @@ export default function Footer({ onConsultationClick }) {
             <div>
               <div className="mb-4">
                 <img
-                  src="/sr_full_logo.png"
+                  src="/sr_full_logo_.png"
                   alt="Shrishti Realty"
                   className="h-16 w-auto object-contain brightness-0 invert opacity-80"
                 />

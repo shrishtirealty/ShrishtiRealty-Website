@@ -54,7 +54,7 @@ export default function Navbar({ onConsultationClick }) {
         {/* Logo */}
         <Link to="/" className="flex items-center shrink-0 group">
           <img
-            src="/sr_full_logo.png"
+            src="/sr_full_logo_.png"
             alt="Shrishti Realty"
             style={{ height: scrolled ? '52px' : '68px', width: 'auto', maxWidth: '200px', objectFit: 'contain', flexShrink: 0 }}
             className={`transition-all duration-500 group-hover:scale-[1.03] ${
