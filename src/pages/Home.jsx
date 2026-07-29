@@ -13,7 +13,7 @@ const services = [
   { icon: BsHouseDoor, title: 'Architecture Planning', desc: 'Creativity, climate-responsiveness, and cultural sensitivity.', to: '/services/architecture-planning', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80' },
   { icon: BsGrid, title: 'Project Management', desc: 'Schedule control, procurement, vendor management & quality assurance.', to: '/services/project-management', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
   { icon: BsGlobe2, title: 'Global Consultancy', desc: 'Strategic advisory for India, GCC, and international markets.', to: '/services/global-consultancy', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80' },
-  { icon: BsCameraVideo, title: '3D Visualization & VR', desc: 'Hyper-realistic visual experiences with cutting-edge technology.', to: '/services/3d-visualization', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80' },
+  { icon: BsCameraVideo, title: '3D Visualization & VR', desc: 'Hyper-realistic visual experiences with cutting-edge technology.', to: '/services/3d-visualization', img: 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=600&q=80' },
   { icon: BsBox, title: 'Smart Portable Cabins', desc: 'Modular, move-in ready spaces built fast, delivered anywhere.', to: '/services/smart-portable-cabins', img: 'https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?w=600&q=80' },
 ]
 
@@ -48,12 +48,6 @@ export default function Home({ onConsultationClick }) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
         <motion.div style={{ y: textY, opacity }} className="relative z-10 h-full max-w-[1400px] mx-auto px-5 lg:px-10 flex flex-col justify-center">
           <div className="max-w-2xl">
-            {/* Guinness badge */}
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-5">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#c9a84c]/20 border border-[#c9a84c]/40 backdrop-blur-sm">
-                <span className="text-[0.55rem] font-bold tracking-[0.25em] uppercase text-gold">🏆 Guinness World Record Holder</span>
-              </span>
-            </motion.div>
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="flex items-center gap-4 mb-8">
               <div className="h-px w-10 bg-gold" /><span className="text-[0.65rem] font-medium tracking-[0.35em] uppercase text-gold">Welcome to Shrishti Realty</span>
             </motion.div>
@@ -181,6 +175,81 @@ export default function Home({ onConsultationClick }) {
         </div>
       </section>
 
+      {/* ═══ GUINNESS WORLD RECORD ═══ */}
+      <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0e0b]">
+        {/* Background texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,168,76,0.06)_0%,_transparent_70%)]" />
+        <GridPattern dark />
+        <CornerArc position="top-right" size={280} color="gold" />
+        <CornerArc position="bottom-left" size={220} color="gold" />
+
+        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            {/* Certificate Image */}
+            <Reveal direction="left">
+              <div className="relative flex justify-center lg:justify-start">
+                {/* Glow behind certificate */}
+                <div className="absolute inset-0 bg-gold/10 blur-3xl rounded-full scale-75 pointer-events-none" />
+                <div className="relative max-w-[380px] mx-auto lg:mx-0">
+                  {/* Decorative frame */}
+                  <div className="absolute -inset-3 border border-gold/20 rounded-2xl pointer-events-none" />
+                  <div className="absolute -inset-6 border border-gold/8 rounded-3xl pointer-events-none" />
+                  <div className="bg-white rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] p-3">
+                    <img
+                      src="/gunniess.png"
+                      alt="Guinness World Record Certificate — Shrishti Realty"
+                      className="w-full rounded-lg object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Text Content */}
+            <Reveal direction="right" delay={0.15}>
+              <div>
+                {/* Guinness badge */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#1c3a6e] border-2 border-[#c9a84c]/40 grid place-items-center shrink-0">
+                    <span className="text-[0.6rem] font-black text-[#c9a84c] tracking-tight leading-none text-center">GWR</span>
+                  </div>
+                  <div>
+                    <p className="text-[0.55rem] font-bold tracking-[0.3em] uppercase text-gold/60">Guinness World Records™</p>
+                    <p className="text-[0.65rem] text-white/30 tracking-wide">Officially Amazing</p>
+                  </div>
+                </div>
+
+                <span className="text-[0.62rem] font-semibold tracking-[0.35em] uppercase text-gold mb-4 block">A Historic Achievement</span>
+
+                <h2 className="font-display text-3xl lg:text-[2.5rem] font-normal text-white leading-[1.2] mb-5">
+                  We Hold a <span className="text-gold italic">Guinness</span><br />World Record
+                </h2>
+                <div className="w-14 h-[1.5px] bg-gold mb-7" />
+
+                <p className="text-white/55 leading-[1.95] mb-4 text-[0.95rem]">
+                  Shrishti Realty, in association with Glimmora International, achieved the Guinness World Record for the <strong className="text-white/80">longest AI platform development hackathon</strong> — a remarkable 24-hour feat accomplished in Pune, Maharashtra, India.
+                </p>
+                <p className="text-white/40 leading-[1.9] mb-8 text-[0.88rem]">
+                  This achievement on <strong className="text-white/55">19 May 2026</strong> stands as a testament to our commitment to innovation, technology, and pushing the boundaries of what's possible — values we bring to every project we build.
+                </p>
+
+                {/* Credential pills */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {['Guinness World Record Holder', 'May 19, 2026', 'Pune, India', '24-Hour Hackathon'].map(tag => (
+                    <span key={tag} className="px-3 py-1 text-[0.6rem] font-semibold tracking-[0.1em] uppercase rounded-full border border-gold/20 text-gold/70 bg-gold/5">{tag}</span>
+                  ))}
+                </div>
+
+                <Link to="/about" className="group inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-dark-green text-[0.68rem] font-bold tracking-[0.15em] uppercase rounded hover:bg-gold-light hover:shadow-[0_8px_30px_rgba(201,168,76,0.25)] transition-all duration-400">
+                  Our Story <FiArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <DiamondSeparator className="py-6 bg-[#f6f4f0]" />
 
       {/* ═══ FEATURED PROJECTS ═══ */}
@@ -255,84 +324,6 @@ export default function Home({ onConsultationClick }) {
               </StaggerChild>
             ))}
           </Stagger>
-        </div>
-      </section>
-
-      {/* ═══ GUINNESS WORLD RECORD ═══ */}
-      <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0e0b]">
-        {/* Background texture */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,168,76,0.06)_0%,_transparent_70%)]" />
-        <GridPattern dark />
-        <CornerArc position="top-right" size={280} color="gold" />
-        <CornerArc position="bottom-left" size={220} color="gold" />
-
-        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-            {/* Certificate Image */}
-            <Reveal direction="left">
-              <div className="relative flex justify-center lg:justify-start">
-                {/* Glow behind certificate */}
-                <div className="absolute inset-0 bg-gold/10 blur-3xl rounded-full scale-75 pointer-events-none" />
-                <div className="relative max-w-[380px] mx-auto lg:mx-0">
-                  {/* Decorative frame */}
-                  <div className="absolute -inset-3 border border-gold/20 rounded-2xl pointer-events-none" />
-                  <div className="absolute -inset-6 border border-gold/8 rounded-3xl pointer-events-none" />
-                  <img
-                    src="/images/guinness-certificate.jpg"
-                    alt="Guinness World Record Certificate — Shrishti Realty"
-                    className="w-full rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] object-cover"
-                  />
-                  {/* Officially Amazing badge */}
-                  <div className="absolute -bottom-5 -right-5 bg-[#c9a84c] px-4 py-2.5 rounded-xl shadow-xl">
-                    <p className="text-[0.55rem] font-black tracking-[0.25em] uppercase text-[#0a0e0b]">Officially</p>
-                    <p className="text-[0.8rem] font-black tracking-[0.1em] uppercase text-[#0a0e0b] leading-none">Amazing™</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Text Content */}
-            <Reveal direction="right" delay={0.15}>
-              <div>
-                {/* Guinness badge */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-[#1c3a6e] border-2 border-[#c9a84c]/40 grid place-items-center shrink-0">
-                    <span className="text-[0.6rem] font-black text-[#c9a84c] tracking-tight leading-none text-center">GWR</span>
-                  </div>
-                  <div>
-                    <p className="text-[0.55rem] font-bold tracking-[0.3em] uppercase text-gold/60">Guinness World Records™</p>
-                    <p className="text-[0.65rem] text-white/30 tracking-wide">Officially Amazing</p>
-                  </div>
-                </div>
-
-                <span className="text-[0.62rem] font-semibold tracking-[0.35em] uppercase text-gold mb-4 block">A Historic Achievement</span>
-
-                <h2 className="font-display text-3xl lg:text-[2.5rem] font-normal text-white leading-[1.2] mb-5">
-                  We Hold a <span className="text-gold italic">Guinness</span><br />World Record
-                </h2>
-                <div className="w-14 h-[1.5px] bg-gold mb-7" />
-
-                <p className="text-white/55 leading-[1.95] mb-4 text-[0.95rem]">
-                  Shrishti Realty, in association with Glimmora International, achieved the Guinness World Record for the <strong className="text-white/80">longest AI platform development hackathon</strong> — a remarkable 24-hour feat accomplished in Pune, Maharashtra, India.
-                </p>
-                <p className="text-white/40 leading-[1.9] mb-8 text-[0.88rem]">
-                  This achievement on <strong className="text-white/55">19 May 2026</strong> stands as a testament to our commitment to innovation, technology, and pushing the boundaries of what's possible — values we bring to every project we build.
-                </p>
-
-                {/* Credential pills */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {['Guinness World Record Holder', 'May 19, 2026', 'Pune, India', '24-Hour Hackathon'].map(tag => (
-                    <span key={tag} className="px-3 py-1 text-[0.6rem] font-semibold tracking-[0.1em] uppercase rounded-full border border-gold/20 text-gold/70 bg-gold/5">{tag}</span>
-                  ))}
-                </div>
-
-                <Link to="/about" className="group inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-dark-green text-[0.68rem] font-bold tracking-[0.15em] uppercase rounded hover:bg-gold-light hover:shadow-[0_8px_30px_rgba(201,168,76,0.25)] transition-all duration-400">
-                  Our Story <FiArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 

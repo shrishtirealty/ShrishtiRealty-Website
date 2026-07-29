@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiAward, FiGlobe, FiHeart, FiStar } from 'react-icons/fi'
+import { FiArrowRight, FiAward, FiGlobe, FiHeart, FiStar, FiCalendar, FiClock, FiMapPin, FiCpu } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, DiamondSeparator, GridPattern } from '../components/Decorations'
@@ -141,14 +141,14 @@ export default function About() {
             <Reveal direction="right" delay={0.15}>
               <Stagger gap={0.08} className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { label: 'Record Set', value: '19 May 2026', icon: '📅' },
-                  { label: 'Duration', value: '24 Hours', icon: '⏱️' },
-                  { label: 'Location', value: 'Pune, India', icon: '📍' },
-                  { label: 'Category', value: 'AI Hackathon', icon: '🤖' },
+                  { label: 'Record Set', value: '19 May 2026', icon: FiCalendar },
+                  { label: 'Duration', value: '24 Hours', icon: FiClock },
+                  { label: 'Location', value: 'Pune, India', icon: FiMapPin },
+                  { label: 'Category', value: 'AI Hackathon', icon: FiCpu },
                 ].map((item, i) => (
                   <StaggerChild key={i}>
                     <div className="p-5 rounded-xl border border-white/[0.06] bg-white/[0.03] hover:border-gold/20 hover:bg-gold/[0.03] transition-all duration-400">
-                      <div className="text-2xl mb-2">{item.icon}</div>
+                      <item.icon className="text-2xl mb-2 text-gold" />
                       <div className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-white/30 mb-1">{item.label}</div>
                       <div className="text-white font-semibold text-[0.95rem]">{item.value}</div>
                     </div>

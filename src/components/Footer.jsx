@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FiPhone, FiMail, FiMapPin, FiArrowUp, FiArrowRight } from 'react-icons/fi'
-import { FaWhatsapp, FaYoutube } from 'react-icons/fa'
+import { FaWhatsapp, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 export default function Footer({ onConsultationClick }) {
   return (
@@ -39,7 +39,7 @@ export default function Footer({ onConsultationClick }) {
                 From Mumbai to Dubai, Doha to London, we redefine luxury through innovation, detail and soul.
               </p>
               <div className="flex gap-2">
-                {[{ Icon: FaWhatsapp, href: 'https://wa.me/7498388944' }, { Icon: FaYoutube, href: 'https://youtube.com/@shrishtirealty' }].map((s, i) => (
+                {[{ Icon: FaWhatsapp, href: 'https://wa.me/7498388944' }, { Icon: FaInstagram, href: 'https://www.instagram.com/nuvibeshrishtirealty' }, { Icon: FaYoutube, href: 'https://youtube.com/@shrishtirealty' }].map((s, i) => (
                   <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/8 grid place-items-center text-white/25 hover:border-gold/30 hover:text-gold transition-all duration-400">
                     <s.Icon size={13} />
                   </a>
