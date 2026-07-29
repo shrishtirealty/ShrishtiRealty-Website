@@ -4,6 +4,7 @@ import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, GridPattern } from '../components/Decorations'
 import { sendEmail } from '../utils/sendEmail'
+import SEOMeta from '../components/SEOMeta'
 
 const steps=[
   {icon:FiUserPlus,title:'Nominate a Friend',desc:'Share details of someone who might be interested in our projects.'},
@@ -19,6 +20,10 @@ export default function ReferAndEarn(){
 
   return(
     <>
+      <SEOMeta
+        title="Refer and Earn | Shrishti Realty Ambassador Program"
+        description="Join Shrishti Realty's Ambassador Program. Refer your friends and family to our luxury real estate projects and earn exciting referral rewards."
+      />
       <PageBanner label="Ambassador Program" title="Refer And Earn" subtitle="Win for You. Win for Them." img="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80"/>
 
       {/* Steps */}

@@ -5,6 +5,7 @@ import { FiX, FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines } from '../components/Decorations'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
+import SEOMeta from '../components/SEOMeta'
 
 const bannerImgs = {
   residential: '/images/residential.jpg',
@@ -57,6 +58,10 @@ export default function Projects() {
 
   return (
     <>
+      <SEOMeta
+        title={`${project.title} | Portfolio | Shrishti Realty`}
+        description={`${project.subtitle} Explore our premium design-build projects, professional cases, and bespoke designs.`}
+      />
       <PageBanner label="Our Portfolio" title={project.title} subtitle={project.subtitle} img={bannerImgs[category]} />
 
       {/* Category navigation */}

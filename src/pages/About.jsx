@@ -3,10 +3,15 @@ import { FiArrowRight, FiAward, FiGlobe, FiHeart, FiStar } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, DiamondSeparator, GridPattern } from '../components/Decorations'
+import SEOMeta from '../components/SEOMeta'
 
 export default function About() {
   return (
     <>
+      <SEOMeta
+        title="About Shrishti Realty | Guinness World Record Holder | Mumbai"
+        description="Shrishti Realty — From boutique interiors in Thane to a globally recognized luxury real estate brand. Guinness World Record holder. Mumbai, Dubai, Doha, London."
+      />
       <PageBanner label="Who We Are" title="About Us" subtitle="Trusted Luxury Property Developers in Mumbai" img="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80" />
 
       {/* Story */}
@@ -86,6 +91,81 @@ export default function About() {
       </section>
 
       <DiamondSeparator className="py-6 bg-[#f6f4f0]" />
+
+      {/* ═══ GUINNESS WORLD RECORD ═══ */}
+      <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0e0b]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,168,76,0.06)_0%,_transparent_70%)]" />
+        <GridPattern dark />
+        <CornerArc position="top-left" size={250} color="gold" />
+        <CornerArc position="bottom-right" size={200} color="gold" />
+
+        <div className="relative max-w-[1400px] mx-auto px-5 lg:px-10">
+          <Reveal className="text-center mb-14">
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="w-12 h-12 rounded-full bg-[#1c3a6e] border-2 border-[#c9a84c]/40 grid place-items-center shrink-0">
+                <span className="text-[0.6rem] font-black text-[#c9a84c] tracking-tight leading-none text-center">GWR</span>
+              </div>
+              <div className="text-left">
+                <p className="text-[0.55rem] font-bold tracking-[0.3em] uppercase text-gold/60">Guinness World Records™</p>
+                <p className="text-[0.65rem] text-white/30 tracking-wide">Officially Amazing</p>
+              </div>
+            </div>
+            <span className="text-[0.62rem] font-semibold tracking-[0.35em] uppercase text-gold mb-4 block">Our Greatest Achievement</span>
+            <h2 className="font-display text-3xl lg:text-5xl font-normal text-white mb-4">Guinness World <span className="text-gold italic">Record Holder</span></h2>
+            <div className="w-12 h-[1.5px] bg-gold mx-auto mb-6" />
+            <p className="text-white/45 max-w-2xl mx-auto leading-relaxed">
+              In association with Glimmora International, Shrishti Realty achieved the Guinness World Record for the longest AI platform development hackathon — 24 hours — on 19 May 2026 in Pune, Maharashtra, India.
+            </p>
+          </Reveal>
+
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <Reveal direction="left">
+              <div className="relative flex justify-center">
+                <div className="absolute inset-0 bg-gold/10 blur-3xl rounded-full scale-75 pointer-events-none" />
+                <div className="relative max-w-[380px] mx-auto">
+                  <div className="absolute -inset-3 border border-gold/20 rounded-2xl pointer-events-none" />
+                  <div className="absolute -inset-6 border border-gold/8 rounded-3xl pointer-events-none" />
+                  <img
+                    src="/images/guinness-certificate.jpg"
+                    alt="Guinness World Record Certificate — Shrishti Realty & Glimmora International"
+                    className="w-full rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] object-cover"
+                  />
+                  <div className="absolute -bottom-5 -right-5 bg-[#c9a84c] px-4 py-2.5 rounded-xl shadow-xl">
+                    <p className="text-[0.55rem] font-black tracking-[0.25em] uppercase text-[#0a0e0b]">Officially</p>
+                    <p className="text-[0.8rem] font-black tracking-[0.1em] uppercase text-[#0a0e0b] leading-none">Amazing™</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal direction="right" delay={0.15}>
+              <Stagger gap={0.08} className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { label: 'Record Set', value: '19 May 2026', icon: '📅' },
+                  { label: 'Duration', value: '24 Hours', icon: '⏱️' },
+                  { label: 'Location', value: 'Pune, India', icon: '📍' },
+                  { label: 'Category', value: 'AI Hackathon', icon: '🤖' },
+                ].map((item, i) => (
+                  <StaggerChild key={i}>
+                    <div className="p-5 rounded-xl border border-white/[0.06] bg-white/[0.03] hover:border-gold/20 hover:bg-gold/[0.03] transition-all duration-400">
+                      <div className="text-2xl mb-2">{item.icon}</div>
+                      <div className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-white/30 mb-1">{item.label}</div>
+                      <div className="text-white font-semibold text-[0.95rem]">{item.value}</div>
+                    </div>
+                  </StaggerChild>
+                ))}
+              </Stagger>
+              <div className="mt-6 p-5 rounded-xl border border-gold/15 bg-gold/5">
+                <p className="text-[0.82rem] text-white/50 leading-relaxed italic">
+                  "This record reflects our belief that innovation and ambition have no limits. We are proud to carry this achievement into every project we deliver."
+                </p>
+                <p className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-gold/50 mt-3">— Shrishti Realty Team</p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
 
       {/* Vision & Mission */}
       <section className="relative py-28 lg:py-36 bg-[#f6f4f0] overflow-hidden">

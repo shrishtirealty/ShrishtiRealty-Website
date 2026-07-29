@@ -4,6 +4,7 @@ import { BsBuildings, BsPalette, BsHouseDoor, BsGrid, BsGlobe2, BsCameraVideo, B
 import PageBanner from '../components/PageBanner'
 import Reveal from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, DiamondSeparator } from '../components/Decorations'
+import SEOMeta from '../components/SEOMeta'
 
 const services = [
   { icon: BsBuildings, title: 'Real Estate Development', desc: 'Curated experience, not just construction. We develop boutique residences, signature villas, high-end apartments and commercial spaces across Thane, Mumbai, Dubai and Doha.', to: '/services/real-estate-development', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80' },
@@ -18,6 +19,10 @@ const services = [
 export default function Services() {
   return (
     <>
+      <SEOMeta
+        title="Our Services | Shrishti Realty — Luxury Real Estate & Design-Build"
+        description="Explore Shrishti Realty's premium design-build services: Real Estate Development, Interior Design, Architecture Planning, Project Management, Global Consultancy, 3D Visualization, and Smart Portable Cabins."
+      />
       <PageBanner label="Our Expertise" title="Our Services" subtitle="Why Partner With Us" img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" />
 
       {/* Intro */}

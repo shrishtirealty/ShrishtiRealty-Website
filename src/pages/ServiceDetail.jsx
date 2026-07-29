@@ -3,6 +3,7 @@ import { FiArrowRight, FiCheck, FiArrowUpRight } from 'react-icons/fi'
 import PageBanner from '../components/PageBanner'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, GridPattern } from '../components/Decorations'
+import SEOMeta from '../components/SEOMeta'
 
 const data = {
   'real-estate-development': { title:'Real Estate Development', subtitle:'From land to landmark — we turn possibilities into properties you will be proud of.', description:'At Shrishti Realty, real estate development is a curated experience, not just construction. We develop boutique residences, signature villas, high-end apartments and commercial spaces across Thane, Mumbai, Dubai and Doha — each one a benchmark in luxury and livability.', expertise:['Land sourcing, research & feasibility analysis','Site planning & master layout design','Government approvals & regulatory compliance','Residential & commercial development','Eco-friendly & green building practices','Value engineering & cost optimization'], differentiators:['Experienced, detail-driven team','Concept to completion support','Future-ready designs','Timely delivery & high craftsmanship'], quote:"We don't just develop properties — we build destinations.", img:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80', sideImg:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80' },
@@ -21,6 +22,10 @@ export default function ServiceDetail() {
 
   return (
     <>
+      <SEOMeta
+        title={`${s.title} | Services | Shrishti Realty`}
+        description={s.description}
+      />
       <PageBanner label="Our Services" title={s.title} subtitle={s.subtitle} img={s.img} />
 
       {/* Overview with image */}

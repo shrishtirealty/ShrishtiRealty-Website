@@ -5,6 +5,7 @@ import PageBanner from '../components/PageBanner'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines } from '../components/Decorations'
 import Reveal, { Stagger, StaggerChild } from '../components/Reveal'
 import { sendEmail } from '../utils/sendEmail'
+import SEOMeta from '../components/SEOMeta'
 
 const cards = [
   { icon: FiPhone, label:'Call Us', value:'+91-7498388944', href:'tel:+917498388944' },
@@ -21,6 +22,10 @@ export default function Contact() {
 
   return (
     <>
+      <SEOMeta
+        title="Contact Us | Shrishti Realty — Luxury Real Estate Developer"
+        description="Get in touch with Shrishti Realty. Reach out to our global offices in Mumbai, Dubai, Doha, and London for high-end real estate, design-build, and consultancy inquiries."
+      />
       <PageBanner label="Get In Touch" title="Contact Us" subtitle="We'd love to hear from you" img="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" />
 
       {/* Cards */}
