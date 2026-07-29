@@ -1,0 +1,22 @@
+{
+  "/": {
+    "label": "Home",
+    "title": "Shrishti Realty | Luxury Real Estate, Interiors & Architecture",
+    "description": "Shrishti Realty crafts luxury real estate, interior design and architecture across Mumbai, Dubai, Doha and London.",
+    "keywords": "luxury real estate, interior design, architecture, Mumbai, Dubai",
+    "ogTitle": "Shrishti Realty | Luxury Redefined",
+    "ogDescription": "From Mumbai to Dubai, Doha to London — luxury real estate, interiors and architecture built on innovation, detail and soul.",
+    "ogImage": "/sr_full_logo.png",
+    "canonical": "https://www.shrishtirealty.com/"
+  },
+  "/about": {
+    "label": "About Us",
+    "title": "About Shrishti Realty | Our Story & Vision",
+    "description": "Learn about Shrishti Realty's journey, values and the team behind our luxury real estate and interior design projects.",
+    "keywords": "about Shrishti Realty, luxury real estate company",
+    "ogTitle": "About Shrishti Realty",
+    "ogDescription": "The story, values and vision behind Shrishti Realty.",
+    "ogImage": "/sr_full_logo.png",
+    "canonical": "https://www.shrishtirealty.com/about"
+  }
+}

@@ -54,7 +54,7 @@ export default function Footer({ onConsultationClick }) {
 
             {/* Quick Links + Projects together */}
             <div><FH>Quick Links</FH>
-              <ul className="space-y-1.5 mb-5">{[['Home','/'],['About Us','/about'],['Services','/services'],['Refer & Earn','/refer-and-earn'],['Connect','/connect'],['Contact Us','/contact']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
+              <ul className="space-y-1.5 mb-5">{[['Home','/'],['About Us','/about'],['Services','/services'],['Blog','/blog'],['Refer & Earn','/refer-and-earn'],['Connect','/connect'],['Contact Us','/contact']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
               <FH>Projects</FH>
               <ul className="space-y-1.5">{[['Residential','/projects/residential'],['Commercial','/projects/commercial'],['Hospitality & Retail','/projects/hospitality-retail']].map(([l,t])=><li key={t}><FL to={t}>{l}</FL></li>)}</ul>
             </div>
