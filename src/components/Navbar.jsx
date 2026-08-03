@@ -75,6 +75,7 @@ export default function Navbar({ onConsultationClick }) {
           <DD label="Projects" scrolled={scrolled} isHome={isHome} active={loc.pathname.startsWith('/projects')} open={dd === 'p'} onE={() => setDd('p')} onL={() => setDd(null)}>
             {pLinks.map(l => <DDLink key={l.to} to={l.to}>{l.label}</DDLink>)}
           </DD>
+          <NL to="/blog" scrolled={scrolled} isHome={isHome} active={loc.pathname.startsWith('/blog')}>Blog</NL>
           <NL to="/contact" scrolled={scrolled} isHome={isHome} active={loc.pathname === '/contact'}>Contact Us</NL>
         </div>
 
@@ -107,8 +108,8 @@ export default function Navbar({ onConsultationClick }) {
                 <div className="mb-6 -mt-12 pb-4 border-b border-gray-100">
                   <img src="/sr_full_logo.png" alt="Shrishti Realty" className="h-10 w-auto object-contain brightness-75" />
                 </div>
-                {['/', '/about', '/contact'].map(p => (
-                  <Link key={p} to={p} className="block py-3.5 text-[0.9rem] text-gray-600 hover:text-dark-green border-b border-gray-100 transition-colors">{p === '/' ? 'Home' : p === '/about' ? 'About Us' : 'Contact Us'}</Link>
+                {['/', '/about', '/blog', '/contact'].map(p => (
+                  <Link key={p} to={p} className="block py-3.5 text-[0.9rem] text-gray-600 hover:text-dark-green border-b border-gray-100 transition-colors">{p === '/' ? 'Home' : p === '/about' ? 'About Us' : p === '/blog' ? 'Blog' : 'Contact Us'}</Link>
                 ))}
                 <MDD label="Services" open={dd === 's'} toggle={() => setDd(dd === 's' ? null : 's')}>
                   <Link to="/services" className="block py-2 text-[0.82rem] text-green font-medium">All Services</Link>

@@ -4,6 +4,7 @@ import { BsBuildings, BsPalette, BsHouseDoor, BsGrid, BsGlobe2, BsCameraVideo, B
 import PageBanner from '../components/PageBanner'
 import Reveal from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle, DiagonalLines, DiamondSeparator } from '../components/Decorations'
+import SEOMeta from '../components/SEOMeta'
 
 const services = [
   { icon: BsBuildings, title: 'Real Estate Development', desc: 'Curated experience, not just construction. We develop boutique residences, signature villas, high-end apartments and commercial spaces across Thane, Mumbai, Dubai and Doha.', to: '/services/real-estate-development', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80' },
@@ -11,13 +12,17 @@ const services = [
   { icon: BsHouseDoor, title: 'Architecture & Planning', desc: 'Creativity, climate-responsiveness and cultural sensitivity combined for residential, commercial, hospitality and mixed-use developments.', to: '/services/architecture-planning', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80' },
   { icon: BsGrid, title: 'Project Management', desc: 'Schedule control, procurement coordination, vendor management, budgeting and quality assurance for India and overseas.', to: '/services/project-management', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80' },
   { icon: BsGlobe2, title: 'Global Consultancy', desc: 'Strategic design and development advisory for India, GCC and international markets with cross-border experience.', to: '/services/global-consultancy', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80' },
-  { icon: BsCameraVideo, title: '3D Visualization & VR Studio', desc: 'Hyper-realistic visual experiences — photorealistic renderings, VR walkthroughs, 360-degree tours and AR previews.', to: '/services/3d-visualization', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80' },
+  { icon: BsCameraVideo, title: '3D Visualization & VR Studio', desc: 'Hyper-realistic visual experiences — photorealistic renderings, VR walkthroughs, 360-degree tours and AR previews.', to: '/services/3d-visualization', img: 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=800&q=80' },
   { icon: BsBox, title: 'Smart Portable Cabins', desc: 'Move-in ready modular solutions — prefab homes, luxury villas, commercial pods and specialized structures.', to: '/services/smart-portable-cabins', img: 'https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?w=800&q=80' },
 ]
 
 export default function Services() {
   return (
     <>
+      <SEOMeta
+        title="Our Services | Shrishti Realty — Luxury Real Estate & Design-Build"
+        description="Explore Shrishti Realty's premium design-build services: Real Estate Development, Interior Design, Architecture Planning, Project Management, Global Consultancy, 3D Visualization, and Smart Portable Cabins."
+      />
       <PageBanner label="Our Expertise" title="Our Services" subtitle="Why Partner With Us" img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" />
 
       {/* Intro */}

@@ -4,6 +4,7 @@ import PageBanner from '../components/PageBanner'
 import Reveal from '../components/Reveal'
 import { DotGrid, CornerArc, FloatingCircle } from '../components/Decorations'
 import { sendEmail } from '../utils/sendEmail'
+import SEOMeta from '../components/SEOMeta'
 
 const MAX_FILE_MB = 5
 const MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024
@@ -109,6 +110,10 @@ export default function Connect() {
 
   return (
     <>
+      <SEOMeta
+        title="Partner & Work With Us | Shrishti Realty Careers & Vendor Program"
+        description="Connect with Shrishti Realty. Join our design and engineering team, or register as a vendor. Submit your resume, portfolio, or business brochure today."
+      />
       <PageBanner label="Work With Us" title="Connect" subtitle="Careers & Vendor Opportunities" img="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80" />
 
       {/* Toast notification */}
