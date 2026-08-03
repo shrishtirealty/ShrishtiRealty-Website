@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiPhone, FiMail, FiMapPin, FiArrowUp, FiArrowRight } from 'react-icons/fi'
+import { FiPhone, FiMail, FiMapPin, FiArrowRight } from 'react-icons/fi'
 import { FaWhatsapp, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 export default function Footer({ onConsultationClick }) {
@@ -83,8 +83,6 @@ export default function Footer({ onConsultationClick }) {
           </div>
         </div>
       </div>
-
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full bg-dark-green text-white grid place-items-center shadow-lg hover:bg-gold hover:text-dark-green hover:scale-110 transition-all duration-400" aria-label="Top"><FiArrowUp size={16} /></button>
     </footer>
   )
 }

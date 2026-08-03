@@ -6,7 +6,11 @@ import {
 import { sendEmail } from '../utils/sendEmail'
 import { COUNTRY_CODES } from '../data/countryCodes'
 
-const BRAND = { name: 'Aria', role: 'Shrishti Realty Concierge' }
+const BRAND = {
+  name: 'Aria',
+  role: 'Shrishti Realty Concierge',
+  avatar: 'https://ui-avatars.com/api/?name=Aria&background=1a3c2a&color=c9a84c&bold=true&size=128&font-size=0.42',
+}
 
 const SYSTEM_PROMPT = `You are Aria, the AI concierge for Shrishti Realty's website. You are warm, professional, knowledgeable, and sales-oriented. Your goal is to help visitors understand Shrishti Realty's services, guide them toward the right solution, and encourage genuinely interested visitors to book a consultation with the team.
 
@@ -378,7 +382,7 @@ export default function ChatBot() {
       <motion.button
         onClick={() => setIsOpen((v) => !v)}
         aria-label="Chat with Aria"
-        className="fixed bottom-24 right-5 sm:right-6 z-[120] w-14 h-14 rounded-full bg-dark-green text-gold grid place-items-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[120] w-14 h-14 rounded-full bg-dark-green text-gold grid place-items-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
         animate={{ boxShadow: ['0 0 0 0 rgba(201,168,76,0.4)', '0 0 0 14px rgba(201,168,76,0)', '0 0 0 0 rgba(201,168,76,0)'] }}
         transition={{ duration: 2.5, repeat: Infinity }}
         whileHover={{ scale: 1.06 }}
@@ -395,14 +399,12 @@ export default function ChatBot() {
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-[calc(6rem+4.5rem)] right-5 sm:right-6 z-[120] w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[70vh] bg-[#f9f8f6] rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.35)] border border-black/[0.05] flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-5 sm:right-6 z-[120] w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[70vh] bg-[#f9f8f6] rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.35)] border border-black/[0.05] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-dark-green px-5 py-4 flex items-center gap-3 shrink-0">
               <div className="relative shrink-0">
-                <div className="w-10 h-10 rounded-full bg-gold/15 border border-gold/40 grid place-items-center">
-                  <span className="font-display text-gold text-sm">SR</span>
-                </div>
+                <img src={BRAND.avatar} alt={BRAND.name} className="w-10 h-10 rounded-full border border-gold/40 object-cover" />
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-light border-2 border-dark-green" />
               </div>
               <div className="min-w-0">
