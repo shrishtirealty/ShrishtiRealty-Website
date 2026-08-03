@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Layout from './layouts/Layout'
 import ScrollToTop from './components/ScrollToTop'
+import ChatBot from './components/ChatBot'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -19,6 +20,12 @@ import AdminBlogEditor from './pages/admin/BlogEditor'
 import AdminPageMeta from './pages/admin/PageMeta'
 import AdminSettings from './pages/admin/Settings'
 
+function ConditionalChatBot() {
+  const { pathname } = useLocation()
+  if (pathname.startsWith('/admin')) return null
+  return <ChatBot />
+}
+
 export default function App() {
   const [consultationOpen, setConsultationOpen] = useState(false)
   const open = () => setConsultationOpen(true)
@@ -26,6 +33,7 @@ export default function App() {
 
   return (
     <Router>
+      <ConditionalChatBot />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout onConsultationClick={open} consultationOpen={consultationOpen} onCloseConsultation={close} />}>

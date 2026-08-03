@@ -176,6 +176,19 @@ export default async function handler(req, res) {
         attachments = buildAttachments([data.brochureFile])
         break
 
+      case 'chatbot-lead':
+        subject = `[Chatbot Lead] ${data.name || 'Website Visitor'} — ${data.interest || 'General Inquiry'}`
+        html = wrap(
+          section('Lead Details', [
+            row('Name', data.name),
+            row('Email', data.email),
+            row('Phone', data.phone),
+            row('Interest', data.interest),
+            row('Conversation', data.message),
+          ].join(''))
+        )
+        break
+
       default:
         return res.status(400).json({ error: 'Unknown form type' })
     }
