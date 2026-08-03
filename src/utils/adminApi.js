@@ -35,7 +35,10 @@ export async function adminApi(action, { method = 'GET', body, params } = {}) {
     body: body !== undefined ? JSON.stringify(body) : undefined,
   })
 
-  if (res.status === 401) {
+  // A 401 from `login` itself just means wrong credentials — let the caller's
+  // own error handling show that message. Only treat 401 on other actions as
+  // an expired/invalid session and force a re-login.
+  if (res.status === 401 && action !== 'login') {
     clearAdminSession()
     window.location.href = '/admin/login'
     throw new Error('Session expired')
